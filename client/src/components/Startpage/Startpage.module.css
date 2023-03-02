@@ -1,0 +1,30 @@
+.container{
+  width: 100%;
+  display:inline-block;
+  align-items: center;
+  padding-left: 80%;
+  padding-top: 20%;
+}
+
+.title {
+  font-size: 4rem;
+  color: #D0D3D4 ;
+  padding: 5% 0 ;
+}
+
+.start {
+  font-size: 2.1rem;
+  border-radius: 30px;
+  background-color:darkgrey ;
+  margin-left: 2px;
+  padding-left: 5px;
+  padding-bottom: 7px;
+  padding-right: 16px;
+
+}
+
+.start:hover {
+  text-decoration: underline solid 3px;
+  cursor: pointer;
+}
+

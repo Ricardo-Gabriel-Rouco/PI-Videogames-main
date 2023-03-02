@@ -1,0 +1,4 @@
+DB_USER=postgres
+DB_PASSWORD=darkgallow12
+DB_HOST=localhost:5433
+API_KEY=b5ca8a942f3143b887b11acd07451e64
