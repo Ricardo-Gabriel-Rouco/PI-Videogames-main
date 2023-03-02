@@ -22,7 +22,7 @@ const getVideoGamesFromdb = async () => {
         platforms: game.platforms,
         image: game.image,
         genre: game.genres.map((genre) => genre.name),
-        image: baseUrl + game.image
+        image: game.image
       };
     });
     return formattedResult;

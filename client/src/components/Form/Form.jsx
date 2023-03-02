@@ -8,7 +8,6 @@ import * as actions from '../../redux/actions'
 export default function Form() {
   const generos = useSelector(state => state.genres)
   const plataformas = useSelector(state => state.platforms)
-  const [imageFile, setImageFile] = useState(null);
   const dispatch = useDispatch()
   const navigate = useNavigate()
   useEffect(() =>{
@@ -45,7 +44,7 @@ export default function Form() {
 
   const handleInputChange = (e) => {
     const { name, value, type, checked } = e.target;
-    let newFormData = {...formData, image: imageFile};
+    let newFormData = {...formData};
   
     if (type === 'checkbox') {
       if (name.startsWith("genre-")) {
@@ -62,20 +61,9 @@ export default function Form() {
     setFormErrors(validation(newFormData));
   };
 
-  // este handler revisa que la imagen sea cargada y leida con exito antes de enviarla al state
-
-  const handleImageChange = (e) => {
-      const file = e.target.files[0];
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setImageFile(reader.result);
-      };
-      reader.readAsDataURL(file);
-  };
-
   const handleSubmit = (e) => {
-    console.log(formData.image)
     e.preventDefault();
+    setFormErrors(validation({...formData, [e.target.name]: [e.target.value]}))
     if (formData.name && formData.description && formData.release && formData.rating && formData.genres.length && formData.platforms.length) {
         dispatch(actions.postGame(formData));
         alert("Guardaste un nuevo Juego");
@@ -155,8 +143,8 @@ export default function Form() {
           {formErrors.platforms?<p>{formErrors.platforms}</p>:<p> </p>}
         </div>
         <div>
-          <label htmlFor="image">Image: </label>
-          <input name='name' type="file" value={formData.image} onChange={handleImageChange}/>
+          <label htmlFor="image">Image URL: </label>
+          <input name='name' type="text" value={formData.image} onChange={handleInputChange}/>
           {formErrors.image?<p>{formErrors.image}</p>:<p> </p>}
         </div>
         <button type='submit' >Guardar</button>

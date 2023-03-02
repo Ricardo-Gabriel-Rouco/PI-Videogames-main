@@ -5,7 +5,8 @@ const {FETCH_GAMES,
   ORDER_BY,
   RATE_BY,
   EXIST,
-  PLATFORMS} = require('./types') 
+  PLATFORMS,
+  SEARCH_NAME} = require('./types') 
 
 const initialState = {
   games: [],
@@ -122,6 +123,12 @@ export function rootReducer(state = initialState, {type, payload}){
           ...state,
           platforms: payload
         }
+
+        case SEARCH_NAME:
+          return {
+            ...state,
+            games: payload
+          }
         
       
 

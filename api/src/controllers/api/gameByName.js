@@ -10,9 +10,9 @@ const getVideoGameByName = async (name) => {
       id: g.id,
       name: g.name,
       released: g.released,
-      img: g.background_image,
+      image: g.background_image,
       rating: g.rating,
-      genres: g.genres.map(genre => genre.name),
+      genre: g.genres.map(genre => genre),
       platforms: g.platforms.map(p => p.platform.name),
     }
   })

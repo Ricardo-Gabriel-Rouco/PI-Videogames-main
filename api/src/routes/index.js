@@ -25,9 +25,9 @@ router.get('/videogames', async (req, res)=>{
 // listado de los primeros 15 resultados por nombre de videojueguito
 router.get('/videogame', async (req, res) => {
   const {name} = req.query
-  console.log(name)
   try {
     let results = await searchByName(name)
+    console.log(results)
     results = results.slice(0,15)
     res.status(200).json(results)
   }
@@ -52,14 +52,11 @@ router.get('/videogames/:id', async (req, res) => {
 // agregado de juegos y relacionado con generos
 router.post('/videogames', async (req, res) =>{
   const { name, description, release, rating, platforms, genres, image} = req.body
-  console.log(image)
-  const options = {timezone: 'America/Argentina/Buenos_Aires'}
+
   let date = new Date(release)
-  let formatedDate = date.toLocaleString('en-US', options)
-  // esto lo hago para que tome la image en formate base64 y pueda ser guardada como una string en la db, sino se debe crear una carpeta aparte y updatearlo mediante un middleware como multer
-  const imageData = image ? Buffer.from(image).toString('base64') : null
+
   try {
-    const result = await createVg(name, description, formatedDate, rating, platforms, genres, imageData)
+    const result = await createVg(name, description,date  , rating, platforms, genres, image || 'https://thumbs.gfycat.com/DescriptiveFluidFrogmouth-size_restricted.gif')
     res.status(201).json(result)
   } catch (error) {
     console.log(error)

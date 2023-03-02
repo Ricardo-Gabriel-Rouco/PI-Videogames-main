@@ -7,6 +7,7 @@ const RATE_BY = 'RATE_BY'
 const EXIST = 'EXIST'
 const PLATFORMS = 'PLATFORMS'
 const POST_GAME = 'POST_GAME'
+const SEARCH_NAME = 'SEARCH_NAME'
 
 module.exports = {
   FETCH_GAMES,
@@ -17,5 +18,6 @@ module.exports = {
   RATE_BY,
   EXIST,
   PLATFORMS,
-  POST_GAME
+  POST_GAME,
+  SEARCH_NAME
 }

@@ -6,7 +6,8 @@ import { FETCH_GAMES,
   RATE_BY,
   EXIST,
   PLATFORMS,
-  POST_GAME
+  POST_GAME,
+  SEARCH_NAME
   } from "./types";
 import axios from 'axios'
 
@@ -99,3 +100,13 @@ export function postGame(payload) {
       }
   };
 }
+
+export const searchName = (payload) => {
+  return (dispatch) => {
+      axios.get(`http://localhost:5000/videogame?name=${payload.name}`)
+        .then(results => {
+          dispatch({type: SEARCH_NAME, payload: [...results.data]})
+        })
+        .catch(error => console.log(error))
+    }
+  }
