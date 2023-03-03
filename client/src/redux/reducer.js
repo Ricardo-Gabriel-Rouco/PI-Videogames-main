@@ -22,9 +22,10 @@ const initialState = {
 export function rootReducer(state = initialState, {type, payload}){
   switch (type) {
     case FETCH_GAMES:
+    const hasModifiedGames = state.games.length !== state.unfilteredGames.length;
     return {
       ...state,
-      games: payload,
+      games: hasModifiedGames ? state.games : payload,
       unfilteredGames: payload,
       allGames: payload
     };
@@ -125,10 +126,19 @@ export function rootReducer(state = initialState, {type, payload}){
         }
 
         case SEARCH_NAME:
-          return {
-            ...state,
-            games: payload
+          if (payload === null) {
+            return {
+              ...state,
+              games: state.allGames
+            };
+          } else {
+
+            return {
+              ...state,
+              games: payload
+            };
           }
+          
         
       
 

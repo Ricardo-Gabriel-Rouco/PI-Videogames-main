@@ -6,7 +6,7 @@ export default function Menu() {
   return (
     <nav className={styles.menu}>
       <ul>
-        <Link to={'/videogames'}>
+        <Link to={'/home'}>
         <li>VideoJuegos</li>
         </Link>
         <li>Generos</li>

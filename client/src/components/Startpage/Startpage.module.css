@@ -1,14 +1,17 @@
 .container{
   width: 100%;
-  display:inline-block;
   align-items: center;
-  padding-left: 80%;
-  padding-top: 20%;
+  flex-direction: column;
 }
+
+.startOptions{
+  flex-direction: column;
+}
+
 
 .title {
   font-size: 4rem;
-  color: #D0D3D4 ;
+  color: #B4b4b4 ;
   padding: 5% 0 ;
 }
 
@@ -26,5 +29,6 @@
 .start:hover {
   text-decoration: underline solid 3px;
   cursor: pointer;
+  background-color: #A7E2F9;
 }
 

@@ -12,17 +12,15 @@ export default function Banner() {
   const dispatch = useDispatch()
 
   function handleChange (e) {
-    setName({...name, [e.target.name]: [e.target.value]})
+    setName({[e.target.name]: [e.target.value]})
   }
 
   function handleSearch (e) {
     e.preventDefault()
-    if(name !== undefined && name !== null){
-      dispatch(actions.searchName(name))
-      setName({
-        name: ''
-      })
-    }
+    dispatch(actions.searchName(name))
+    setName({
+      name: ''
+    })
   }
 
 

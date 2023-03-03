@@ -103,10 +103,21 @@ export function postGame(payload) {
 
 export const searchName = (payload) => {
   return (dispatch) => {
-      axios.get(`http://localhost:5000/videogame?name=${payload.name}`)
+      if(!payload){
+        console.log(payload)
+        axios.get('http://localhost:5000/videogames')
         .then(results => {
-          dispatch({type: SEARCH_NAME, payload: [...results.data]})
+          dispatch({type: FETCH_GAMES, payload: [...results.data]})
         })
         .catch(error => console.log(error))
+      }
+      else if(payload.name) {
+        axios.get(`http://localhost:5000/videogame?name=${payload.name}`)
+          .then(results => {
+            dispatch({type: SEARCH_NAME, payload: [...results.data]})
+          })
+          .catch(error => console.log(error))
+      }
+
     }
   }

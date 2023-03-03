@@ -5,11 +5,10 @@ import Menu from './components/Menu/Menu'
 import Home from './components/Home/Home.jsx'
 import Detail from './components/Detail/Detail.jsx'
 import Form from './components/Form/Form'
-// import Cards from './components/Cards/Cards.jsx'
 import { useState} from 'react'
 import {Routes, Route, useLocation, useNavigate ,Outlet} from 'react-router-dom'
 
-export const pageTitle = 'Titulo de la pagina'
+export const pageTitle = 'Henry Videogames'
 
 function App() {
   const location = useLocation()

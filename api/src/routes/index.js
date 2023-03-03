@@ -27,7 +27,6 @@ router.get('/videogame', async (req, res) => {
   const {name} = req.query
   try {
     let results = await searchByName(name)
-    console.log(results)
     results = results.slice(0,15)
     res.status(200).json(results)
   }

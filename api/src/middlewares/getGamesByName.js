@@ -5,7 +5,6 @@ const searchByName = async (name) => {
   const gamesDb = await getGamesByNameDb(name)
   const gamesApi = await getVideoGameByName(name)
   const result = [...gamesDb, ...gamesApi]
-  console.log(result)
   const formattedResult = result.map((game) => {
     return {
       id: game.id,
