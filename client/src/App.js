@@ -35,7 +35,7 @@ function App() {
   return (
     <div className="App">
       <Banner/>
-      <Menu/>
+      {/* <Menu/> */}
       <Routes>
         <Route path='/home' element={<Home/>}></Route>
         <Route path='/videogames/:id' element={<Detail/>}></Route>

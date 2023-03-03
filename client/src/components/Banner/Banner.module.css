@@ -2,12 +2,19 @@
 .banner {
   text-align: center;
   display: flex;
-  float: left;
+  position: fixed;
+  top: 0;
+  justify-content: space-around;
+  align-items: center;
   list-style-type: none;
+  width: 100%;
+  padding: 0 auto;
+  background-color: rgba(14, 73, 131, 0.9)
 }
 
 .banner a {
   text-decoration: none;
+  color: darkgrey;
 }
 
 a:active a:link a:visited {
@@ -19,29 +26,24 @@ a:active a:link a:visited {
 }
 
 .title {
-  padding-left: 100px;
-  padding-right: 50px;
   font-size: 2rem;  
   font-weight: bold;
 }
 
 .searchBar2 {
-  padding-right: 15%;
   font-size: 1.2rem;
-  position: absolute;
-  right: 0;
 }
 
-button {
+/* button {
   right: 0;
   margin-top: 15px;
   margin-right: 30px;
-}
+} */
 
 /* tengo que cambiar el color del fondo */
-button:hover{
+.searchBar2 button:hover{
   cursor: pointer;
-  background-color: aqua;
   text-decoration: underline solid 2px;
+  background-color: #A7E2F9;
 }
 

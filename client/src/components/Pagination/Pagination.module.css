@@ -1,23 +1,25 @@
 .paginateContainer{
-  display: inline-flex;
-  position: relative;
-  bottom: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(1, 1fr);
 }
 
 .paginateContainer ul{
   display: flex;
-  align-items: center;
-  justify-items: center;
+  justify-content: center;
+  grid-column: 2/3;
+  grid-row: 1/2;
   width: 100%;
   border-radius: 25px;
   list-style-type: none;
 }
 
+
 .paginateContainer ul li {
   border: solid 1px;
   padding: 10px;
   /* margin-left: 2px; */
-  background-color: coral;
+  background-color: grey;
 }
 
 .paginateContainer ul li:first-child {
@@ -29,3 +31,10 @@
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
 }
+
+.current {
+  background-color: #007bff;
+  color: #fff;
+  border: solid 5px white;
+}
+

@@ -1,11 +1,12 @@
 import React from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import styles from './Filters.module.css'
 import * as actions from '../../redux/actions'
 
 function Filters({genres}) {
   const dispatch = useDispatch()
-  // const VG = useSelector(state=> state.games)
+
+  const VG = useSelector(state=> state.games)
   
   function filter(genre){
     dispatch(actions.filterbyGenre(genre))
@@ -21,6 +22,10 @@ function Filters({genres}) {
   
   function isInDb(exist){
     dispatch(actions.existInDb(exist))
+  }
+
+  function resetFilter() {
+    dispatch(actions.fetchGames())   
   }
 
   return (
@@ -55,6 +60,7 @@ function Filters({genres}) {
       <div>
       </div>
       </div>
+      <button  onClick={() => resetFilter()} className={styles.dropButton1}>Ver todo</button>
     </div>
   )
 }

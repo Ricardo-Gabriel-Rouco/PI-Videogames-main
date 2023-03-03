@@ -4,22 +4,27 @@
   border-radius: 25px;
   margin-left: 5%;
   margin-top: 5%;
-  width: 300px;
-  height: fit-content;
+  width: 250px;
+  height: 466px;
   font: 12px;
   display: inline-block;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 .container span {
   font-weight: bold;
-  flex-wrap: wrap;
-  max-width: fit-content;
+}
+
+.container span::after {
+  content: '...';
 }
 
 
 .container img {
   border-radius: 25px;
   margin: 10px 10px 10px 10px ;
-  width: 250px;
-  height: 250px;
+  width: 220px;
+  height: 220px;
 }

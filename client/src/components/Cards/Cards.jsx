@@ -16,10 +16,8 @@ export default function Cards({variableX}) {
   }
 
   return (
-    <>
-      <div className={styles.pages}>
-        <div>
-          {variableX?.map((game, j) => (
+    <div className={styles.pages}>
+        {variableX?.map((game, j) => (
             <Card
               key={j}
               id={game.id}
@@ -29,9 +27,6 @@ export default function Cards({variableX}) {
               release={game.released}
             />
           ))}
-        </div>
-      </div>
-      <Pagination/>
-    </>
+    </div>
   );
 }

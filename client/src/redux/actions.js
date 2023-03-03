@@ -12,19 +12,14 @@ import { FETCH_GAMES,
 import axios from 'axios'
 
 export const fetchGames = () => {
-  return (dispatch, getState) => {
-    const state = getState()
-    if (state.games.length > 1) {
-      dispatch({ type: FETCH_GAMES, payload: state.games });
-    } else {
-      axios.get('http://localhost:5000/videogames')
-        .then(results => {
-          dispatch({type: FETCH_GAMES, payload: [...results.data]})
+  return (dispatch) => {
+    axios.get('http://localhost:5000/videogames')
+      .then(results => {
+        dispatch({type: FETCH_GAMES, payload: [...results.data]})
         })
         .catch(error => console.log(error))
+      }
     }
-  }
-}
 
 export const changePage = (page) => {
   return(dispatch) => {
@@ -104,7 +99,6 @@ export function postGame(payload) {
 export const searchName = (payload) => {
   return (dispatch) => {
       if(!payload){
-        console.log(payload)
         axios.get('http://localhost:5000/videogames')
         .then(results => {
           dispatch({type: FETCH_GAMES, payload: [...results.data]})

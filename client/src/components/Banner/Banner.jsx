@@ -12,7 +12,7 @@ export default function Banner() {
   const dispatch = useDispatch()
 
   function handleChange (e) {
-    setName({[e.target.name]: [e.target.value]})
+    setName({...name, [e.target.name]: [e.target.value]})
   }
 
   function handleSearch (e) {
@@ -25,16 +25,14 @@ export default function Banner() {
 
 
   return (
-    <div>
-      <ul className={styles.banner}>
-        <Link to={'/home'}>
-        <li className={styles.title}>{pageTitle}</li>
+    <div className={styles.banner}>
+      <Link to={'/home'}>
+        <h1 className={styles.title}>{pageTitle}</h1>
         </Link>
         <form onSubmit={handleSearch} className={styles.searchBar2}>
           <input type="text" name="name" placeholder='Ingrese un nombre de videojuego' onChange={handleChange}/>
           <button type='submit'>Buscar</button>
         </form>
-      </ul>
     </div>
   )
 }

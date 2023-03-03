@@ -13,6 +13,7 @@ const initialState = {
   unfilteredGames: [],
   unorderedGames: [],
   allGames: [],
+  search: [],
   genres: [],
   page: 1,
   filtered: [],
@@ -22,10 +23,9 @@ const initialState = {
 export function rootReducer(state = initialState, {type, payload}){
   switch (type) {
     case FETCH_GAMES:
-    const hasModifiedGames = state.games.length !== state.unfilteredGames.length;
     return {
       ...state,
-      games: hasModifiedGames ? state.games : payload,
+      games: payload,
       unfilteredGames: payload,
       allGames: payload
     };

@@ -19,6 +19,14 @@ export default function Home() {
     dispatch(actions.changePage(number))
   }
 
+  function backPage (e){
+    dispatch(actions.changePage(page - 1))
+  }
+
+  function nextPage (e){
+    dispatch(actions.changePage(page + 1))
+  }
+
   const [cardsPerPage] = useState(15)
 
   useEffect(() => {
@@ -47,8 +55,10 @@ export default function Home() {
     <div className={styles.home}>
 
       <Filters genres={genres} />
+      <div>
       <Cards variableX={variableX}/>
-      <Pagination  totalCards={totalCards} cardsPerPage={cardsPerPage} paginate={paginate}/>
+      {totalCards > 15 ? <Pagination  totalCards={totalCards} cardsPerPage={cardsPerPage} paginate={paginate} backPage={backPage} nextPage={nextPage}/> : null}
+      </div>
     </div>
   )
 }
