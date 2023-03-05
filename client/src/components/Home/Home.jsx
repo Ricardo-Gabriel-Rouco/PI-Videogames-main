@@ -1,5 +1,5 @@
 import React from 'react'
-
+import Loader from '../Loader/Loader'
 import styles from './Home.module.css'
 import Pagination from '../Pagination/Pagination'
 import Cards from '../Cards/Cards'
@@ -19,7 +19,7 @@ export default function Home() {
     dispatch(actions.changePage(number))
   }
 
-  function backPage (e){
+  function backPage (){
     dispatch(actions.changePage(page - 1))
   }
 
@@ -53,10 +53,11 @@ export default function Home() {
 
   return (
     <div className={styles.home}>
-
       <Filters genres={genres} />
       <div>
-      <Cards variableX={variableX}/>
+      {
+        variableX.length ? <Cards variableX={variableX}/> : <Loader/>
+      }
       {totalCards > 15 ? <Pagination  totalCards={totalCards} cardsPerPage={cardsPerPage} paginate={paginate} backPage={backPage} nextPage={nextPage}/> : null}
       </div>
     </div>
