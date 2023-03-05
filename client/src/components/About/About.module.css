@@ -4,6 +4,7 @@
   background-color: darkgrey;
   width: 450px;
   text-decoration: none;
+  border-radius: 25px;
 }
 
 .aboutContainer p {
