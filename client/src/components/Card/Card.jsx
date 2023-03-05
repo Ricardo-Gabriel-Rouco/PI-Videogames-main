@@ -5,7 +5,7 @@ import {Link} from 'react-router-dom'
 export default function Card(props) {
   return (
     <div className={styles.container}>
-      <Link to={`/videogames/${props.id}`} state={{genre: props.genre, release: props.release}}>
+      <Link key={props.name} to={`/videogames/${props.id}`} state={{genre: props.genre, release: props.release}}>
         <li key={props.name}>
           <div>
             <img src={props.image} alt="Just another gamephoto" />

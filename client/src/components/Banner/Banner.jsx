@@ -29,6 +29,7 @@ export default function Banner() {
       <Link to={'/home'}>
         <h1 className={styles.title}>{pageTitle}</h1>
         </Link>
+        <Link to={'/videogames/create'}><h3>Agregar</h3></Link>
         <form onSubmit={handleSearch} className={styles.searchBar2}>
           <input type="text" name="name" placeholder='Ingrese un nombre de videojuego' onChange={handleChange}/>
           <button type='submit'>Buscar</button>

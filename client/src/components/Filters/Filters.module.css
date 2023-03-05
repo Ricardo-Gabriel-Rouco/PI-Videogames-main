@@ -43,7 +43,7 @@
 
 .dropdowncontent a:hover {background-color: #ddd; flex-direction: column;}
 
-.dropdown:hover .dropdowncontent {display: block; overflow:auto; z-index: 1;}
+.dropdown:hover .dropdowncontent {display: block; overflow:auto; z-index: 3;}
 
 .dropdown:hover .dropbtn {background-color: #3e8e41;}
 

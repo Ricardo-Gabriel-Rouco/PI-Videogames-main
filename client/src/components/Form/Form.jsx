@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import {useSelector, useDispatch} from 'react-redux'
 import validation from './validation'
 import * as actions from '../../redux/actions'
+import styles from './Form.module.css'
 
 export default function Form() {
   const generos = useSelector(state => state.genres)
@@ -87,9 +88,10 @@ export default function Form() {
 
 
   return (
-    <div>
+    <div className={styles.container}>
       <h1>Crear Videojuego</h1>
-      <form onSubmit={handleSubmit}>
+      <div className={styles.formContainer}>
+      <form onSubmit={handleSubmit} >
         <div>
           <label htmlFor="name">Name: </label>
           <input name='name' type="text" value={formData.name} onChange={handleInputChange}/>
@@ -110,10 +112,11 @@ export default function Form() {
           <input name='rating' type="text" value={formData.rating} onChange={handleInputChange}/>
           {formErrors.rating?<p>{formErrors.rating}</p>:<p> </p>}
         </div>
-        <div>
-          <label htmlFor="genres">Genres: </label>
+        <div className={styles.dropdown}>
+          <label className={styles.dropButton} htmlFor="genres" >Genres: </label>
+          <div className={styles.dropdowncontent} >
           {generos.map(g =>
-            <div key={g.id}>
+            <div className={styles.checkboxestyles} key={g.id}>
             <label htmlFor={g.name}>{g.name}</label>
             <input
             type='checkbox'
@@ -121,15 +124,18 @@ export default function Form() {
             value={g.name}
             checked={formData.genres.includes(g.name)}
             onChange={handleInputChange}
-          />
-          </div>
+            />
+            </div >
           )}
+          </div>
           {formErrors.genres?<p>{formErrors.genres}</p>:<p> </p>}
         </div>
-        <div>
-          <label htmlFor="platforms">Platforms: </label>
+        <div className={styles.dropdown}>
+        <label htmlFor="platforms" className={styles.dropButton}>Platforms: </label>
+        <div className={styles.dropdowncontent}>
+          <div>
           {plataformas.map(g =>
-            <div key={g.id}>
+            <div className={styles.checkboxestyles} key={g.id}>
             <label htmlFor={g.name}>{g.name}</label>
             <input
               type='checkbox'
@@ -137,9 +143,11 @@ export default function Form() {
               value={g.name}
               checked={formData.platforms.includes(g.name)}
               onChange={handleInputChange}
-          />
-          </div>
+              />
+            </div>
           )}
+          </div>
+          </div>
           {formErrors.platforms?<p>{formErrors.platforms}</p>:<p> </p>}
         </div>
         <div>
@@ -149,6 +157,7 @@ export default function Form() {
         </div>
         <button type='submit' >Guardar</button>
       </form>
+    </div>
     </div>
   )
 }
