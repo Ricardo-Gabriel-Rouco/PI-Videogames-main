@@ -17,7 +17,7 @@ export default function Detail() {
   useEffect(() =>{
     const fetchVideoGame = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/videogames/${id}`)
+        const response = await axios.get(`http://localhost:5000/videogame/${id}`)
         setVideoGame(response.data)
       } catch (error) {
         console.log(error)
@@ -30,6 +30,7 @@ export default function Detail() {
 
   return (
     <div className={styles.detailContainer}>
+      <div className={styles.detail}>
       <h1 className={styles.littleTitle}>{videoGame.name}</h1>
       <img src={videoGame.image} alt="" />
       <p><b>Genero:</b> {location.state.genre.join(', ')}</p>
@@ -38,6 +39,7 @@ export default function Detail() {
       <p className={styles.littleTitle}>Descripcion</p>
       <div dangerouslySetInnerHTML={{__html: DOMPurify.sanitize(videoGame.description)}}></div>
       {videoGame.platforms? <p><b>Plataformas: </b> {videoGame.platforms.join(', ')}</p> : null}
+      </div>
     </div>
   )
 }

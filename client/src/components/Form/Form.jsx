@@ -5,6 +5,7 @@ import {useSelector, useDispatch} from 'react-redux'
 import validation from './validation'
 import * as actions from '../../redux/actions'
 import styles from './Form.module.css'
+import {VscError} from 'react-icons/vsc'
 
 export default function Form() {
   const generos = useSelector(state => state.genres)
@@ -95,22 +96,22 @@ export default function Form() {
         <div>
           <label htmlFor="name">Name: </label>
           <input name='name' type="text" value={formData.name} onChange={handleInputChange}/>
-          {formErrors.name?<p>{formErrors.name}</p>:<p> </p>}
+          {formErrors.name?<p className={styles.errores}><VscError/>{formErrors.name}</p>:<p> </p>}
         </div>
         <div>
           <label htmlFor="description">Description: </label>
           <textarea name='description' type="textarea" value={formData.description} onChange={handleInputChange}/>
-          {formErrors.description?<p>{formErrors.description}</p>:<p> </p>}
+          {formErrors.description?<p className={styles.errores}><VscError/>{formErrors.description}</p>:<p> </p>}
         </div>
         <div>
           <label htmlFor="release">Release: </label>
           <input name='release' type="date" value={formData.release} onChange={handleInputChange}/>
-          {formErrors.release?<p>{formErrors.release}</p>:<p> </p>}
+          {formErrors.release?<p className={styles.errores}><VscError/> {formErrors.release}</p>:<p> </p>}
         </div>
         <div>
           <label htmlFor="rating">Rating: </label>
           <input name='rating' type="text" value={formData.rating} onChange={handleInputChange}/>
-          {formErrors.rating?<p>{formErrors.rating}</p>:<p> </p>}
+          {formErrors.rating?<p className={styles.errores}><VscError/> {formErrors.rating}</p>:<p> </p>}
         </div>
         <div className={styles.dropdown}>
           <label className={styles.dropButton} htmlFor="genres" >Genres: </label>
@@ -128,7 +129,7 @@ export default function Form() {
             </div >
           )}
           </div>
-          {formErrors.genres?<p>{formErrors.genres}</p>:<p> </p>}
+          {formErrors.genres?<p className={styles.errores}><VscError/> {formErrors.genres}</p>:<p> </p>}
         </div>
         <div className={styles.dropdown}>
         <label htmlFor="platforms" className={styles.dropButton}>Platforms: </label>
@@ -148,14 +149,14 @@ export default function Form() {
           )}
           </div>
           </div>
-          {formErrors.platforms?<p>{formErrors.platforms}</p>:<p> </p>}
+          {formErrors.platforms?<p className={styles.errores}><VscError/> {formErrors.platforms}</p>:<p> </p>}
         </div>
         <div>
           <label htmlFor="image">Image URL: </label>
           <input name='name' type="text" value={formData.image} onChange={handleInputChange}/>
-          {formErrors.image?<p>{formErrors.image}</p>:<p> </p>}
+          {formErrors.image?<p className={styles.errores}><VscError/> {formErrors.image}</p>:<p> </p>}
         </div>
-        <button type='submit' >Guardar</button>
+        <button type='submit'>Guardar</button>
       </form>
     </div>
     </div>
