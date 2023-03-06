@@ -1,6 +1,6 @@
 const {getAllVideogames} = require('../middlewares/getGames')
 const {searchByName} = require('../middlewares/getGamesByName')
-
+const {createVg} = require('../controllers/db/postGame')
 const getAllVideoGamesHandler =  async(req, res) =>{
   const name = req.body.name
 
@@ -34,7 +34,7 @@ const getAllVideoGamesHandler =  async(req, res) =>{
 const createVideogamesHandler = async (req, res)=>{
   const {name, description, release, rating, platforms, genres, image} = req.body;
   
-  const newVg = await createVideogame(name, description, release, rating, platforms, genres, image || 'https://thumbs.gfycat.com/DescriptiveFluidFrogmouth-size_restricted.gif');
+  const newVg = await createVg(name, description, release, rating, platforms, genres, image || 'https://thumbs.gfycat.com/DescriptiveFluidFrogmouth-size_restricted.gif');
   
   res.status(200).send(newVg)
   

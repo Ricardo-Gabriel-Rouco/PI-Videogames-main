@@ -24,7 +24,7 @@ const getGamesByIdDb = async (id) =>{
       released: game.release,
       rating: game.rating,
       platforms: game.platforms,
-      genres: game.genres.map(g => g.name)
+      genres: game.genres.map(g => g)
     };
   } catch (error) {
     return error
